@@ -1,0 +1,368 @@
+.root {
+  display: grid;
+  gap: 22px;
+  min-width: 0;
+  margin-top: 20px;
+  padding: clamp(18px, 3vw, 26px);
+  color: #eaf6ff;
+  border: 1px solid #38a6dc38;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #091c29, #06131e 72%);
+  box-shadow: inset 0 1px #ffffff0a;
+}
+
+.topbar {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.heading {
+  display: grid;
+  gap: 7px;
+}
+
+.eyebrow {
+  color: #e9ff46;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .18em;
+}
+
+.heading h4 {
+  margin: 0;
+  font-size: clamp(21px, 3vw, 29px);
+  letter-spacing: -.04em;
+}
+
+.intro {
+  color: #ffffff75;
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.root .toggle {
+  flex: 0 0 auto;
+  padding: 9px 12px;
+  color: #dcebf4;
+  border: 1px solid #ffffff24;
+  border-radius: 999px;
+  background: #ffffff0b;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.root .toggle:hover {
+  color: white;
+  border-color: #38a6dc78;
+  background: #38a6dc16;
+}
+
+.root .toggle:focus-visible {
+  outline: 3px solid #e9ff46;
+  outline-offset: 3px;
+}
+
+.blocked {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 14px 16px;
+  color: #ffe4df;
+  border: 1px solid #ff756259;
+  border-radius: 12px;
+  background: #ff503313;
+}
+
+.blocked > svg {
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  color: #ff8b79;
+}
+
+.blocked > div {
+  display: grid;
+  gap: 4px;
+}
+
+.blocked strong {
+  font-size: 12px;
+}
+
+.blocked span {
+  color: #ffc9c0b8;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid #ffffff12;
+}
+
+.legend > span {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  color: #ffffff6b;
+  font-size: 9px;
+}
+
+.legend > span::before {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #38a6dc;
+  content: "";
+}
+
+.legend > span[data-tone="added"]::before { background: #8eea9e; }
+.legend > span[data-tone="cleared"]::before { background: #ff9d79; }
+.legend > span[data-tone="unchanged"]::before { background: #ffffff3b; }
+
+.section {
+  display: grid;
+  gap: 13px;
+  min-width: 0;
+}
+
+.section + .section {
+  padding-top: 21px;
+  border-top: 1px solid #ffffff12;
+}
+
+.sectionHeading {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.sectionHeading h5 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.sectionHeading > span {
+  color: #38a6dc;
+  font-size: 9px;
+}
+
+.fieldList,
+.seasonList {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.field {
+  display: grid;
+  grid-template-columns: minmax(94px, .3fr) minmax(0, 1fr);
+  gap: 15px;
+  align-items: center;
+  min-width: 0;
+  padding: 12px 13px;
+  border: 1px solid #38a6dc25;
+  border-radius: 11px;
+  background: #38a6dc0b;
+}
+
+.field[data-state="added"] {
+  border-color: #65d57d35;
+  background: #65d57d0a;
+}
+
+.field[data-state="cleared"] {
+  border-color: #ff8b6540;
+  background: #ff68400c;
+}
+
+.field[data-state="unchanged"] {
+  border-color: #ffffff0e;
+  background: #ffffff05;
+}
+
+.fieldMeta {
+  display: grid;
+  gap: 6px;
+  justify-items: start;
+}
+
+.fieldLabel {
+  color: #dcebf4;
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.changeBadge {
+  padding: 3px 6px;
+  color: #76cef7;
+  border-radius: 999px;
+  background: #38a6dc17;
+  font-size: 8px;
+}
+
+.field[data-state="added"] .changeBadge { color: #9cf0aa; background: #65d57d15; }
+.field[data-state="cleared"] .changeBadge { color: #ffad91; background: #ff684014; }
+.field[data-state="unchanged"] .changeBadge { color: #ffffff5c; background: #ffffff0a; }
+
+.comparison {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+}
+
+.valueCell {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.columnLabel {
+  color: #ffffff55;
+  font-size: 8px;
+  letter-spacing: .04em;
+}
+
+.value {
+  overflow-wrap: anywhere;
+  color: #eef8ff;
+  font-size: 11px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.emptyValue {
+  color: #ffffff48;
+  font-style: italic;
+}
+
+.arrow {
+  width: 14px;
+  height: 14px;
+  color: #38a6dc;
+}
+
+.mergeNote {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 9px 11px;
+  color: #a8c6d6;
+  border-radius: 9px;
+  background: #ffffff07;
+  font-size: 9px;
+  line-height: 1.55;
+}
+
+.mergeNote > svg {
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+  color: #38a6dc;
+}
+
+.seasonCard {
+  display: grid;
+  gap: 9px;
+  padding: 13px;
+  border: 1px solid #38a6dc29;
+  border-radius: 13px;
+  background: #06131e;
+}
+
+.seasonCard[data-state="added"] { border-color: #65d57d3d; }
+.seasonCard[data-state="unchanged"] { border-color: #ffffff12; }
+
+.seasonHeading {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.seasonHeading strong {
+  font-size: 13px;
+}
+
+.seasonHeading > span {
+  color: #7bd1f8;
+  font-size: 8px;
+}
+
+.seasonCard[data-state="added"] .seasonHeading > span { color: #9cf0aa; }
+.seasonCard[data-state="unchanged"] .seasonHeading > span { color: #ffffff59; }
+
+.seasonCard .field {
+  grid-template-columns: minmax(85px, .25fr) minmax(0, 1fr);
+  padding: 10px 11px;
+  background: #ffffff04;
+}
+
+.noChanges {
+  padding: 16px;
+  color: #ffffff58;
+  border: 1px dashed #ffffff18;
+  border-radius: 10px;
+  font-size: 10px;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .topbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .root .toggle {
+    align-self: flex-start;
+  }
+
+  .field,
+  .seasonCard .field {
+    grid-template-columns: 1fr;
+  }
+
+  .fieldMeta {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    justify-items: stretch;
+  }
+
+  .changeBadge {
+    justify-self: end;
+  }
+}
+
+@media (max-width: 480px) {
+  .root {
+    margin-inline: -8px;
+    padding: 16px 12px;
+    border-radius: 14px;
+  }
+
+  .comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .arrow {
+    transform: rotate(90deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root * {
+    scroll-behavior: auto;
+  }
+}

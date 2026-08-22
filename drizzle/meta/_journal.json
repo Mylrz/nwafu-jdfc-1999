@@ -1,0 +1,48 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1785860253992,
+      "tag": "0000_flashy_spiral",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1785864736377,
+      "tag": "0001_ambitious_blockbuster",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1785871233811,
+      "tag": "0002_smart_stardust",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1786641738737,
+      "tag": "0003_grey_skrulls",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1786739938380,
+      "tag": "0004_naive_vector",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1786741869062,
+      "tag": "0005_kind_colossus",
+      "breakpoints": true
+    }
+  ]
+}

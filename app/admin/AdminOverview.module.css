@@ -1,0 +1,143 @@
+.overview {
+  --ink: #edf8ff;
+  --muted: #8ca8b8;
+  --line: rgb(255 255 255 / 9%);
+  --panel: #0a1d2a;
+  --panel-deep: #071722;
+  --blue: #42b5ec;
+  --lime: #e9ff46;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  gap: 24px;
+  padding: clamp(28px, 5vw, 64px) clamp(18px, 7vw, 110px) clamp(72px, 9vw, 120px);
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 8% 5%, rgb(28 135 188 / 12%), transparent 25rem),
+    #06131e;
+}
+
+.overview *, .overview *::before, .overview *::after { box-sizing: border-box; }
+.overview button { color: inherit; font: inherit; }
+.overview button:focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; }
+
+.intro { display: flex; justify-content: space-between; align-items: end; gap: 32px; padding-bottom: 4px; }
+.intro > div { display: grid; gap: 10px; }
+.kicker { display: inline-flex; gap: 8px; align-items: center; color: var(--lime); font-size: 9px; font-weight: 900; letter-spacing: .22em; }
+.kicker svg { width: 14px; height: 14px; }
+.intro h2 { margin: 0; font-size: clamp(28px, 4vw, 48px); letter-spacing: -.045em; }
+.intro > p { max-width: 440px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.85; text-align: right; }
+
+.primaryGrid { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(260px, .75fr); gap: 14px; }
+.pendingCard, .snapshot, .queueCard, .health { border: 1px solid var(--line); background: var(--panel); }
+.pendingCard { position: relative; min-height: 250px; overflow: hidden; padding: clamp(25px, 4vw, 44px); background: linear-gradient(125deg, #0d3450 0%, #0b283b 48%, #091c29 100%); }
+.pendingCard::before { position: absolute; inset: 0; background-image: linear-gradient(rgb(255 255 255 / 2.5%) 1px, transparent 1px), linear-gradient(90deg, rgb(255 255 255 / 2.5%) 1px, transparent 1px); background-size: 36px 36px; content: ""; mask-image: linear-gradient(90deg, black, transparent 76%); }
+.cardGlow { position: absolute; right: -90px; bottom: -140px; width: 360px; height: 360px; border-radius: 50%; background: var(--blue); filter: blur(85px); opacity: .2; }
+.pendingCard.isClear .cardGlow { background: var(--lime); opacity: .14; }
+.statusIcon { position: relative; z-index: 1; display: grid; place-items: center; width: 46px; height: 46px; color: #071722; background: var(--lime); border-radius: 50%; }
+.statusIcon svg { width: 21px; height: 21px; }
+.pendingCopy { position: relative; z-index: 1; display: flex; flex-wrap: wrap; align-items: baseline; max-width: 620px; margin-top: 24px; }
+.pendingCopy p { width: 100%; margin: 0 0 5px; color: var(--blue); font-size: 9px; font-weight: 900; letter-spacing: .2em; }
+.pendingCopy strong { margin-right: 12px; font: 900 clamp(64px, 9vw, 108px)/.9 Arial, sans-serif; letter-spacing: -.08em; }
+.pendingCopy h3 { margin: 0; font-size: clamp(21px, 3vw, 32px); letter-spacing: -.035em; }
+.pendingCopy span { width: 100%; margin-top: 13px; color: #b5cbd7; font-size: 12px; }
+.isClear .pendingCopy { display: grid; }
+.isClear .pendingCopy h3 { margin-top: 4px; font-size: clamp(27px, 4vw, 46px); }
+.pendingCard > button { position: absolute; right: clamp(22px, 4vw, 44px); bottom: clamp(22px, 4vw, 38px); z-index: 2; display: inline-flex; gap: 10px; align-items: center; padding: 12px 15px; color: #071722; background: var(--lime); border: 0; font-size: 11px; font-weight: 900; cursor: pointer; transition: transform .2s ease, background .2s ease; }
+.pendingCard > button:hover { background: white; transform: translateY(-2px); }
+.pendingCard > button svg { width: 15px; height: 15px; }
+
+.snapshot { display: grid; padding: 12px clamp(18px, 3vw, 28px); background: linear-gradient(155deg, #0b202f, #081824); }
+.snapshot > div { display: grid; grid-template-columns: 36px 1fr; gap: 14px; align-items: center; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.snapshot > div:last-child { border-bottom: 0; }
+.snapshot svg { width: 21px; height: 21px; color: var(--blue); }
+.snapshot span { display: grid; grid-template-columns: 1fr auto auto; align-items: baseline; color: var(--muted); font-size: 10px; }
+.snapshot strong { color: white; font: 800 30px/1 Arial, sans-serif; }
+.snapshot small { margin-left: 5px; color: #668696; font-size: 9px; }
+
+.queueGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.queueCard { display: flex; min-width: 0; min-height: 310px; flex-direction: column; padding: 22px; background: linear-gradient(155deg, #0c2231, #081924); }
+.queueCard > header { display: grid; grid-template-columns: 38px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.queueIcon { display: grid; place-items: center; width: 38px; height: 38px; color: var(--blue); background: rgb(66 181 236 / 10%); border: 1px solid rgb(66 181 236 / 18%); border-radius: 10px; }
+.queueIcon svg { width: 18px; height: 18px; }
+.queueCard header p { margin: 0 0 4px; color: #60869a; font-size: 7px; font-weight: 900; letter-spacing: .17em; }
+.queueCard header h3 { margin: 0; overflow: hidden; font-size: 16px; text-overflow: ellipsis; white-space: nowrap; }
+.queueCard > header > strong { display: grid; place-items: center; min-width: 32px; height: 32px; padding: 0 7px; color: #071722; background: var(--lime); border-radius: 50%; font: 900 14px/1 Arial, sans-serif; }
+
+.itemList { display: grid; margin: 0; padding: 0; list-style: none; }
+.itemList li { border-bottom: 1px solid var(--line); }
+.itemList button { display: grid; width: 100%; grid-template-columns: minmax(0, 1fr) auto 15px; gap: 10px; align-items: center; padding: 16px 0; background: transparent; border: 0; text-align: left; cursor: pointer; }
+.itemList button > span { display: grid; min-width: 0; gap: 5px; }
+.itemList b, .itemList small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.itemList b { font-size: 12px; }
+.itemList small { color: var(--muted); font-size: 9px; }
+.itemList time { color: #5d7e90; font-size: 8px; white-space: nowrap; }
+.itemList svg { width: 14px; height: 14px; color: #57798b; transition: transform .2s ease, color .2s ease; }
+.itemList button:hover svg { color: var(--lime); transform: translateX(3px); }
+.queueEmpty { display: grid; min-height: 116px; place-items: center; align-content: center; gap: 10px; color: #638191; text-align: center; }
+.queueEmpty svg { width: 23px; height: 23px; color: #4f819a; }
+.queueEmpty span { font-size: 10px; }
+.queueAction { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-top: auto; padding: 12px 0 0; color: #a6c1cf; background: transparent; border: 0; font-size: 10px; font-weight: 800; cursor: pointer; }
+.queueAction:hover { color: var(--lime); }
+.queueAction svg { width: 14px; height: 14px; }
+
+.health { display: grid; grid-template-columns: minmax(260px, .8fr) minmax(380px, 1.35fr) auto; gap: clamp(24px, 5vw, 62px); align-items: center; padding: clamp(24px, 4vw, 38px); background: linear-gradient(115deg, #091b28, #0d2635); }
+.healthHeading { display: flex; gap: 18px; align-items: center; }
+.healthScore { display: flex; min-width: 88px; align-items: flex-end; color: var(--lime); }
+.healthScore strong { font: 900 52px/.9 Arial, sans-serif; letter-spacing: -.07em; }
+.healthScore small { margin: 0 0 5px 5px; color: #678696; font-size: 8px; }
+.healthHeading p { margin: 0 0 6px; color: var(--blue); font-size: 8px; font-weight: 900; letter-spacing: .18em; }
+.healthHeading h3 { margin: 0 0 6px; font-size: 20px; }
+.healthHeading div > span { color: var(--muted); font-size: 9px; line-height: 1.6; }
+.healthChecks { display: grid; gap: 18px; }
+.healthRow { display: grid; grid-template-columns: 32px minmax(0, 1fr) 42px; gap: 13px; align-items: center; }
+.healthIcon { display: grid; place-items: center; width: 32px; height: 32px; color: var(--blue); border: 1px solid rgb(66 181 236 / 18%); border-radius: 50%; }
+.healthIcon svg { width: 15px; height: 15px; }
+.healthRow > div { min-width: 0; }
+.healthRow header { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.healthRow b { font-size: 10px; }
+.healthRow header span { color: var(--muted); font-size: 8px; }
+.healthRow > strong { color: white; font: 800 13px/1 Arial, sans-serif; text-align: right; }
+.progress { height: 3px; overflow: hidden; background: rgb(255 255 255 / 8%); }
+.progress i { display: block; height: 100%; background: linear-gradient(90deg, var(--blue), var(--lime)); }
+.healthAction { display: inline-flex; gap: 10px; align-items: center; padding: 12px 14px; color: #071722 !important; background: var(--lime); border: 0; font-size: 10px !important; font-weight: 900 !important; white-space: nowrap; cursor: pointer; }
+.healthAction:hover { background: white; }
+.healthAction svg { width: 14px; height: 14px; }
+
+@media (max-width: 1040px) {
+  .queueGrid { grid-template-columns: 1fr 1fr; }
+  .queueCard:last-child { grid-column: 1 / -1; min-height: 270px; }
+  .health { grid-template-columns: 1fr 1fr; }
+  .healthAction { grid-column: 1 / -1; justify-self: start; }
+}
+
+@media (max-width: 760px) {
+  .overview { gap: 14px; }
+  .intro { display: grid; gap: 12px; }
+  .intro > p { max-width: 560px; text-align: left; }
+  .primaryGrid, .queueGrid, .health { grid-template-columns: 1fr; }
+  .queueCard:last-child, .healthAction { grid-column: auto; }
+  .pendingCard { min-height: 300px; }
+  .snapshot { grid-template-columns: repeat(3, 1fr); padding: 10px 14px; }
+  .snapshot > div { grid-template-columns: 1fr; gap: 9px; border-right: 1px solid var(--line); border-bottom: 0; text-align: center; }
+  .snapshot > div:last-child { border-right: 0; }
+  .snapshot svg { justify-self: center; }
+  .snapshot span { grid-template-columns: 1fr; justify-items: center; gap: 4px; }
+  .snapshot small { display: none; }
+  .queueCard { min-height: 275px; }
+}
+
+@media (max-width: 480px) {
+  .pendingCard > button { position: relative; right: auto; bottom: auto; margin-top: 28px; }
+  .pendingCopy strong { font-size: 72px; }
+  .snapshot strong { font-size: 24px; }
+  .healthHeading { align-items: flex-start; }
+  .healthScore { min-width: 72px; }
+  .healthScore strong { font-size: 44px; }
+  .healthRow { grid-template-columns: 30px minmax(0, 1fr); }
+  .healthRow > strong { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overview *, .overview *::before, .overview *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
